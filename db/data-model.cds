@@ -1,11 +1,11 @@
-namespace db;
+namespace stoevents.db;
 
 using {
     Country,
     managed
 } from '@sap/cds/common';
 
-entity STO_Projects: managed  {
+entity STO_Projects : managed {
     Project_ID                                  : String      @title : 'Project_ID ';
     Project_Name                                : String      @title : 'Project_Name';
     Project_Description                         : LargeString @title : ' Project_Description';
@@ -69,7 +69,7 @@ entity STO_Projects: managed  {
 }
 
 
-entity Project_Organizations: managed  {
+entity Project_Organizations : managed {
 
     Project_ID          : String;
     OBS_Role_ID         : String;
@@ -117,7 +117,6 @@ entity STO_Projects_Public_Permits : managed {
 }
 
 
-
 entity Project_Complexities : managed {
     key ID                : String @title : 'ID';
         ProjectComplexity : String @title : 'ProjectComplexity';
@@ -129,7 +128,7 @@ entity Project_Complexities : managed {
 entity Project_Types : managed {
     key ID          : String @title : 'ID';
         ProjectType : String @title : 'ProjectType';
-        
+
 
 }
 
@@ -139,7 +138,7 @@ entity Project_Categories : managed {
         Category_Name   : String @title : 'Category_Name';
         Company_Code    : String @title : 'Company_Code';
         Plant_Code      : String @title : 'Plant_Code';
-     
+
 }
 
 entity System_Status : managed {
@@ -147,8 +146,6 @@ entity System_Status : managed {
         Status_Name : String @title : 'Status_Name';
 
 }
-
-
 
 
 // context stoevents.db {
