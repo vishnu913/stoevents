@@ -1,7 +1,11 @@
 namespace db;
 
+using {
+    Country,
+    managed
+} from '@sap/cds/common';
 
-entity STO_Projects {
+entity STO_Projects: managed  {
     Project_ID                                  : String      @title : 'Project_ID ';
     Project_Name                                : String      @title : 'Project_Name';
     Project_Description                         : LargeString @title : ' Project_Description';
@@ -63,6 +67,89 @@ entity STO_Projects {
     Company_Code                                : String      @title : 'Company_Code';
     Plant_Code                                  : String      @title : 'Plant_Code ';
 }
+
+
+entity Project_Organizations: managed  {
+
+    Project_ID          : String;
+    OBS_Role_ID         : String;
+    OBS_Role_Name       : String;
+    Reports_TO          : String;
+    Assignment          : String;
+    Employee_ID         : String;
+    Employee_Name       : String;
+    Authorization_Group : String;
+    Company_Code        : String;
+    Plant_Code          : String;
+
+
+}
+
+entity Project_Role_Responsibilities : managed {
+    Project_ID        : String;
+    OBS_Role_ID       : String;
+    OBS_Role_Name     : String;
+    Responsibility_ID : String;
+    Company_Code      : String;
+    Plant_Code        : String;
+}
+
+entity STO_Projects_Public_Permits : managed {
+    Project_ID                 : String;
+    Public_Permit_Type         : String;
+    Public_Permit_Type_Name    : String;
+    Permit_Name                : String;
+    Permit_Description         : String;
+    Issuing_Organization       : String;
+    Required_By_Date           : String;
+    Lead_Time_Days             : String;
+    Responsible_Person         : String;
+    Rejected_On_Date           : String;
+    Reason_for_Rejection       : String;
+    Resubmitted_On             : String;
+    Issued_On_Date             : String;
+    Permit_Status              : String;
+    Permit_Application_URL     : String;
+    Permit_Permit_Document_URL : String;
+    Company_ID                 : String;
+    Plant_ID                   : String;
+
+}
+
+
+
+entity Project_Complexities : managed {
+    key ID                : String @title : 'ID';
+        ProjectComplexity : String @title : 'ProjectComplexity';
+        Complexity_Name   : String @title : 'Complexity_Name';
+        Company_Code      : String @title : ' Company_Code';
+        Plant_Code        : String @title : 'Plant_Code';
+}
+
+entity Project_Types : managed {
+    key ID          : String @title : 'ID';
+        ProjectType : String @title : 'ProjectType';
+        
+
+}
+
+entity Project_Categories : managed {
+    key ID              : String @title : 'ID';
+        ProjectCategory : String @title : 'ProjectCategory';
+        Category_Name   : String @title : 'Category_Name';
+        Company_Code    : String @title : 'Company_Code';
+        Plant_Code      : String @title : 'Plant_Code';
+     
+}
+
+entity System_Status : managed {
+    key Status_ID   : String @title : 'Status_ID';
+        Status_Name : String @title : 'Status_Name';
+
+}
+
+
+
 
 // context stoevents.db {
 
