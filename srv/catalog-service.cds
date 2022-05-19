@@ -4,6 +4,18 @@ using {stoevents.db as db} from '../db/data-model';
 
 
 service CatalogService @(path : '/catalog') @(requires : 'authenticated-user') {
+
+    entity STO_Projects @(restrict : [
+        {
+            grant : ['READ'],
+            to    : 'Viewer'
+        },
+        {
+            grant : ['WRITE'],
+            to    : 'Admin'
+        }
+    ]) as select * from db.STO_Projects;
+
     entity Project_Complexities @(restrict : [
         {
             grant : ['READ'],
