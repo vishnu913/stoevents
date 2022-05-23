@@ -47,7 +47,7 @@ modules:
       disk-quota: 1024M
       keep-existing-routes: true
     properties:
-      TENANT_HOST_PATTERN: '^(.*)-${space}-${app-name}.${default-domain}'
+      TENANT_HOST_PATTERN: '^(.*)-dev-stoevents.${default-domain}'
     requires:
       - name: stoevents-uaa
       - name: srv-api
